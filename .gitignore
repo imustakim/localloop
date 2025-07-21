@@ -57,6 +57,28 @@ docker-compose.yml
 # Ignore SimpleTest multi-site environment
 /web/sites/simpletest/
 
+# Ignore dev files
+node_modules
+web/themes/**/build
+web/themes/**/yarn-error.log
+
+# Ignore scaffolded files.
+web/.csslintrc
+web/.eslintignore
+web/.eslintrc.json
+web/.ht.router.php
+web/.htaccess
+web/autoload.php
+web/example.gitignore
+web/index.php
+web/INSTALL.txt
+web/README.md
+web/robots.txt
+web/update.php
+web/web.config
+/.editorconfig
+/.gitattributes
+
 # Drush alias files
 /drush/sites/*.site.yml
 
@@ -68,3 +90,11 @@ Thumbs.db
 ehthumbs.db
 ehthumbs_vista.db
 [Dd]esktop.ini
+
+# Ignore storybook files.
+storybook/build-storybook.log
+storybook/storybook-static
+
+# Ignore logs.
+logs
+!logs/.gitkeep
