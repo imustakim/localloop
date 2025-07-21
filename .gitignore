@@ -1,0 +1,65 @@
+# Ignore Drupal core and Composer dependencies
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+
+# Don't track scaffolded Drupal root files (managed by composer)
+/web/csslintrc
+/web/.editorconfig
+/web/.eslintignore
+/web/.eslintrc.json
+/web/.gitattributes
+/web/.ht.router.php
+/web/autoload.php
+/web/index.php
+/web/INSTALL.txt
+/web/README.txt
+/web/robots.txt
+/web/update.php
+/web/web.config
+/web/example.gitignore
+
+# Ignore configuration containing sensitive info
+/web/sites/*/settings*.php
+/web/sites/*/services*.yml
+/web/sites/development.services.yml
+
+# Ignore runtime, uploads, and private directories
+/web/sites/*/files/
+/web/sites/*/private/
+/web/sites/simpletest/
+
+# Environment files
+/.env
+/.env.local
+
+# Drush and PHPUnit
+*.sql
+*.sql.gz
+*.dump
+/phpunit.xml
+/phpunit.xml.dist
+
+# Node/npm and build artifacts
+/node_modules/
+/npm-debug.log*
+/yarn-debug.log*
+/yarn-error.log*
+/build/
+/dist/
+
+# IDEs, OS files, editors
+.idea/
+/.vscode/
+*.swp
+*~.nib
+.DS_Store
+Thumbs.db
+logs/*
+.sql
+
+# Optional: ignore composer.lock if external lock strategy
+# composer.lock
