@@ -44,8 +44,6 @@ npm-debug.log
 /web/sites/*/files/
 
 # Certain Docker files
-
-docker/
 docker-compose.yml
 
 # Environment files
