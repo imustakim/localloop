@@ -1,9 +1,0 @@
-api_version: 1
-web_docroot: true
-# See https://pantheon.io/docs/pantheon-yml/#enforce-https--hsts for valid values.
-enforce_https: transitional
-php_version: 8.3
-database:
-  version: 10.6
-drush_version: 13.6
-build_step: true
