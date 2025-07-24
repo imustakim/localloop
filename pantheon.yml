@@ -8,9 +8,8 @@ database:
 drush_version: 13.6
 build_step: true
 
-workflows:
-  deploy:
-    after:
-      - type: webphp
-        description: Import configuration from .yml files
-        script: private/scripts/drush_config_import/drush_config_import.php
+deploy:
+  hooks:
+    post_code_checkout:
+      - exec: drush config-import -y
+      - exec: drush cache-rebuild
