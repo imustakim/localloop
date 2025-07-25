@@ -24,10 +24,6 @@ jobs:
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.PANTHEON_SSH_PRIVATE_KEY }}
-      - name: Add Pantheon Host Key
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -p 2222 ssh://codeserver.dev.${{ secrets.PANTHEON_SITE }}@codeserver.dev.${{ secrets.PANTHEON_SITE }}.drush.in:2222/~/repository.git >> ~/.ssh/known_hosts
       - name: Push code to Pantheon Dev environment
         run: |
           git config --global user.name "Github Actions"
