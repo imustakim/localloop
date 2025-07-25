@@ -20,9 +20,6 @@ jobs:
           php-version: '8.3'
           tools: composer
 
-      - name: Add Pantheon's SSH key to known_hosts
-        run: ssh-keyscan -p 2222 codeserver.dev.${{ secrets.PANTHEON_SITE }}.drush.in >> ~/.ssh/known_hosts
-
       - name: Add Pantheon SSH Key
         uses: webfactory/ssh-agent@v0.9.0
         with:
