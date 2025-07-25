@@ -25,16 +25,16 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.PANTHEON_SSH_PRIVATE_KEY }}
 
+      - name: Push code to Pantheon Dev environment
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git push ssh://codeserver.dev.${{ secrets.PANTHEON_SITE }}.drush.in:2222/~/repository.git dev:master --force
+
       - name: Install Terminus and Authenticate
         uses: pantheon-systems/terminus-github-actions@v1
         with:
           pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
-
-      - name: Set Pantheon environment to Git mode
-        run: terminus connection:set ${{ secrets.PANTHEON_SITE }}.dev git
-
-      - name: Push code to Pantheon Dev environment
-        run: git push ssh://codeserver.dev.${{ secrets.PANTHEON_SITE }}.drush.in:2222/~/repository.git dev:master --force
 
       - name: Run database updates
         run: terminus drush ${{ secrets.PANTHEON_SITE }}.dev -- updatedb -y
