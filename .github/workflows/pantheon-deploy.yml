@@ -29,11 +29,9 @@ jobs:
       - name: Install Terminus
         uses: pantheon-systems/terminus-github-actions@v1
         with:
-          terminus-version: ^3
-
-      - name: Authenticate with Pantheon
-        run: terminus auth:login --machine-token=${{ secrets.PANTHEON_MACHINE_TOKEN }} --email=${{ secrets.PANTHEON_ACCOUNT }}
-
+          pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
+      - name: List sites
+        run: terminus site:list
       - name: Push code to Pantheon Dev environment
         run: |
           git remote add pantheon ssh://codeserver.dev.${{ secrets.PANTHEON_SITE }}@codeserver.dev.${{ secrets.PANTHEON_SITE }}.drush.in:2222/~/repository.git || true
