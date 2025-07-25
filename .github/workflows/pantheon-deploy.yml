@@ -18,33 +18,32 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          extensions: mbstring, xml, gd, curl, json, zip
           tools: composer
 
-      - name: Add SSH Key for Pantheon
+      - name: Add Pantheon's SSH key to known_hosts
+        run: ssh-keyscan -p 2222 codeserver.dev.${{ secrets.PANTHEON_SITE }}.drush.in >> ~/.ssh/known_hosts
+
+      - name: Add Pantheon SSH Key
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.PANTHEON_SSH_PRIVATE_KEY }}
 
-      - name: Install Terminus
+      - name: Install Terminus and Authenticate
         uses: pantheon-systems/terminus-github-actions@v1
         with:
           pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
-      - name: List sites
-        run: terminus site:list
-      - name: Set Connection to the Dev environment
-        run: |
-          terminus connection:set ${{ secrets.PANTHEON_SITE }}.dev git
-      - name: Push code to Pantheon Dev environment
-        run: |
-          git fetch
-          git push pantheon dev:master --force
 
-      - name: Import config
-        run: terminus drush ${{ secrets.PANTHEON_SITE }}.dev -- config-import -y
+      - name: Set Pantheon environment to Git mode
+        run: terminus connection:set ${{ secrets.PANTHEON_SITE }}.dev git
+
+      - name: Push code to Pantheon Dev environment
+        run: git push ssh://codeserver.dev.${{ secrets.PANTHEON_SITE }}.drush.in:2222/~/repository.git dev:master --force
 
       - name: Run database updates
         run: terminus drush ${{ secrets.PANTHEON_SITE }}.dev -- updatedb -y
+
+      - name: Import config
+        run: terminus drush ${{ secrets.PANTHEON_SITE }}.dev -- config-import -y
 
       - name: Clear cache
         run: terminus drush ${{ secrets.PANTHEON_SITE }}.dev -- cr
