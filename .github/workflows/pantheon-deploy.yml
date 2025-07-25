@@ -6,56 +6,45 @@ on:
       - dev
 
 jobs:
-  deploy-to-pantheon-dev:
+  deploy:
+    name: Deploy to Pantheon Dev
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Setup PHP
+      - name: Set up PHP 8.3
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          extensions: gd, zip, intl
-          tools: composer
+          extensions: mbstring, xml, gd, curl, json, zip
+          tools: composer, drush
 
-      - name: Install Composer Dependencies
-        run: composer install --no-progress --no-dev
+      - name: Add SSH Key for Pantheon
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.PANTHEON_SSH_PRIVATE_KEY }}
 
       - name: Install Terminus
-        uses: pantheon-systems/terminus-github-actions@v1
-        with:
-          terminus-version: ^3
+        run: |
+          curl -L https://github.com/pantheon-systems/terminus/releases/download/3.0.9/terminus.phar -o terminus
+          chmod +x terminus
+          sudo mv terminus /usr/local/bin/terminus
 
       - name: Authenticate with Pantheon
         run: terminus auth:login --machine-token=${{ secrets.PANTHEON_MACHINE_TOKEN }} --email=${{ secrets.PANTHEON_ACCOUNT }}
 
-      - name: Add SSH Key for Pantheon
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.PANTHEON_SSH_PRIVATE_KEY }}
-
-      - name: Push to Pantheon Dev Environment
-        env:
-          PANTHEON_SITE_ID: ${{ secrets.PANTHEON_SITE }}
+      - name: Push code to Pantheon Dev environment
         run: |
-          git remote add pantheon "ssh://codeserver.dev.$PANTHEON_SITE_ID@codeserver.dev.$PANTHEON_SITE_ID.drush.in:2222/~/repository.git"
+          git remote add pantheon ssh://codeserver.dev.${{ secrets.PANTHEON_SITE }}@codeserver.dev.${{ secrets.PANTHEON_SITE }}.drush.in:2222/~/repository.git || true
           git push pantheon dev:master --force
 
-      - name: Run post-deployment commands on Pantheon
-        env:
-          PANTHEON_SITE_ID: ${{ secrets.PANTHEON_SITE }}
-        run: |
-          terminus connection:set $PANTHEON_SITE_ID.dev sftp
-          terminus drush $PANTHEON_SITE_ID.dev -- config:import -y
-          terminus drush $PANTHEON_SITE_ID.dev -- updatedb -y
-          terminus drush $PANTHEON_SITE_ID.dev -- cr
+      - name: Import config
+        run: terminus drush ${{ secrets.PANTHEON_SITE }}.dev -- config-import -y
 
+      - name: Run database updates
+        run: terminus drush ${{ secrets.PANTHEON_SITE }}.dev -- updatedb -y
 
-
-
-
-
+      - name: Clear cache
+        run: terminus drush ${{ secrets.PANTHEON_SITE }}.dev -- cr
