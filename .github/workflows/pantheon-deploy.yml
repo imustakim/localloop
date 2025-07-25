@@ -37,7 +37,6 @@ jobs:
           terminus connection:set ${{ secrets.PANTHEON_SITE }}.dev git
       - name: Push code to Pantheon Dev environment
         run: |
-          git add remote pantheon ssh://codeserver.dev.${{ secrets.PANTHEON_SITE }}.drush.in:2222/~/repository.git
           git fetch
           git push pantheon dev:master --force
 
