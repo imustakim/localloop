@@ -48,6 +48,7 @@ module:
   media_library: 0
   menu_link_content: 0
   menu_ui: 0
+  message: 0
   mysql: 0
   node: 0
   options: 0
@@ -55,11 +56,14 @@ module:
   path: 0
   path_alias: 0
   privatemsg: 0
+  queue_ui: 0
   registration: 0
+  scheduler: 0
   search: 0
   search_api: 0
   search_api_location: 0
   shortcut: 0
+  smtp: 0
   starrating: 0
   syslog: 0
   system: 0
