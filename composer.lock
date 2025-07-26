@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43dc69b82ba6a58e81c2002688acb86a",
+    "content-hash": "ab632ee1939fe4a131cc1600617453f1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3248,6 +3248,69 @@
             }
         },
         {
+            "name": "drupal/message",
+            "version": "1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/message.git",
+                "reference": "8.x-1.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/message-8.x-1.8.zip",
+                "reference": "8.x-1.8",
+                "shasum": "461a00b425c9d8907f489e8109fb6b20871c463e"
+            },
+            "require": {
+                "drupal/core": "^9.2 || ^10 || ^11"
+            },
+            "require-dev": {
+                "drupal/token": "^1.14"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.8",
+                    "datestamp": "1739744268",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "amitaibu",
+                    "homepage": "https://www.drupal.org/user/57511"
+                },
+                {
+                    "name": "bluegeek9",
+                    "homepage": "https://www.drupal.org/user/1286304"
+                },
+                {
+                    "name": "Grayside",
+                    "homepage": "https://www.drupal.org/user/346868"
+                },
+                {
+                    "name": "jhedstrom",
+                    "homepage": "https://www.drupal.org/user/208732"
+                },
+                {
+                    "name": "RoySegall",
+                    "homepage": "https://www.drupal.org/user/1812910"
+                }
+            ],
+            "description": "Message",
+            "homepage": "https://www.drupal.org/project/message",
+            "support": {
+                "source": "https://git.drupalcode.org/project/message"
+            }
+        },
+        {
             "name": "drupal/pathauto",
             "version": "1.13.0",
             "source": {
@@ -3370,6 +3433,90 @@
             }
         },
         {
+            "name": "drupal/queue_ui",
+            "version": "3.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/queue_ui.git",
+                "reference": "3.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/queue_ui-3.2.1.zip",
+                "reference": "3.2.1",
+                "shasum": "1578dc075f83c0f318a3a61f89e0d62f00fa0786"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11.0"
+            },
+            "require-dev": {
+                "drupal/queue_order": "^2",
+                "drush/drush": "^12.0 || ^13.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.2.1",
+                    "datestamp": "1729672832",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^12.0 || ^13.0"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "floretan",
+                    "homepage": "https://www.drupal.org/user/2743951",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "coltrane",
+                    "homepage": "https://www.drupal.org/user/91990",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "tsphethean",
+                    "homepage": "https://www.drupal.org/user/66163",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "bceyssens",
+                    "homepage": "https://www.drupal.org/user/2811585",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "voleger",
+                    "homepage": "https://www.drupal.org/user/881620",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "voleger",
+                    "homepage": "https://www.drupal.org/user/3260314"
+                }
+            ],
+            "description": "Interface and manager for Drupal queues.",
+            "homepage": "https://www.drupal.org/project/queue_ui",
+            "keywords": [
+                "drupal",
+                "php",
+                "queue"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/queue_ui",
+                "issues": "https://www.drupal.org/project/issues/queue_ui"
+            }
+        },
+        {
             "name": "drupal/registration",
             "version": "3.4.4",
             "source": {
@@ -3426,6 +3573,80 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/registration",
                 "issues": "https://www.drupal.org/project/issues/registration"
+            }
+        },
+        {
+            "name": "drupal/scheduler",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/scheduler.git",
+                "reference": "2.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/scheduler-2.2.1.zip",
+                "reference": "2.2.1",
+                "shasum": "ce9a9405ea88140fbdd53f1e3ed3741b6f27266c"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10 || ^11"
+            },
+            "require-dev": {
+                "drupal/commerce": "^2 || ^3",
+                "drupal/devel_generate": ">=4",
+                "drupal/rules": "^3 || ^4",
+                "drupal/workbench_moderation": "*",
+                "drupal/workbench_moderation_actions": "*",
+                "drush/drush": ">=9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.2.1",
+                    "datestamp": "1738771365",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9 || ^10"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Eric Schaefer (Eric Schaefer)",
+                    "homepage": "https://www.drupal.org/u/eric-schaefer",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Jonathan Smith (jonathan1055)",
+                    "homepage": "https://www.drupal.org/u/jonathan1055",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Pieter Frenssen (pfrenssen)",
+                    "homepage": "https://www.drupal.org/u/pfrenssen",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Rick Manelius (rickmanelius)",
+                    "homepage": "https://www.drupal.org/u/rickmanelius",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Automatically publish and unpublish content at specified dates and times.",
+            "homepage": "https://drupal.org/project/scheduler",
+            "support": {
+                "source": "https://git.drupalcode.org/project/scheduler",
+                "issues": "https://www.drupal.org/project/issues/scheduler"
             }
         },
         {
@@ -3566,6 +3787,82 @@
                 "source": "http://git.drupal.org/project/search_api_location.git",
                 "issues": "https://www.drupal.org/project/issues/search_api_location",
                 "irc": "irc://irc.freenode.org/drupal-search-api"
+            }
+        },
+        {
+            "name": "drupal/smtp",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/smtp.git",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/smtp-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "963b4670dc609f30a8c003d888d88893d0841b21"
+            },
+            "require": {
+                "drupal/core": "^9.5 || ^10 || ^11",
+                "phpmailer/phpmailer": "^6.1.7"
+            },
+            "suggest": {
+                "drupal/mailsystem": "Allows using SMTP alongside other mail modules."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1722032780",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "branch-alias": {
+                    "dev-8.x-1.x": "1.x-dev"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "japerry",
+                    "homepage": "https://www.drupal.org/user/45640"
+                },
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
+                    "name": "LukeLast",
+                    "homepage": "https://www.drupal.org/user/30151"
+                },
+                {
+                    "name": "oadaeh",
+                    "homepage": "https://www.drupal.org/user/4649"
+                },
+                {
+                    "name": "sadashiv",
+                    "homepage": "https://www.drupal.org/user/1773304"
+                },
+                {
+                    "name": "wundo",
+                    "homepage": "https://www.drupal.org/user/25523"
+                },
+                {
+                    "name": "yettyn",
+                    "homepage": "https://www.drupal.org/user/93281"
+                }
+            ],
+            "description": "Allow for site emails to be sent through an SMTP server of your choice.",
+            "homepage": "https://www.drupal.org/project/smtp",
+            "support": {
+                "source": "https://git.drupalcode.org/project/smtp",
+                "issues": "https://www.drupal.org/project/issues/smtp"
             }
         },
         {
@@ -5954,6 +6251,87 @@
                 "source": "https://github.com/php-tuf/composer-stager"
             },
             "time": "2025-04-21T15:27:20+00:00"
+        },
+        {
+            "name": "phpmailer/phpmailer",
+            "version": "v6.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPMailer/PHPMailer.git",
+                "reference": "bf74d75a1fde6beaa34a0ddae2ec5fce0f72a144"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/bf74d75a1fde6beaa34a0ddae2ec5fce0f72a144",
+                "reference": "bf74d75a1fde6beaa34a0ddae2ec5fce0f72a144",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-filter": "*",
+                "ext-hash": "*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "doctrine/annotations": "^1.2.6 || ^1.13.3",
+                "php-parallel-lint/php-console-highlighter": "^1.0.0",
+                "php-parallel-lint/php-parallel-lint": "^1.3.2",
+                "phpcompatibility/php-compatibility": "^9.3.5",
+                "roave/security-advisories": "dev-latest",
+                "squizlabs/php_codesniffer": "^3.7.2",
+                "yoast/phpunit-polyfills": "^1.0.4"
+            },
+            "suggest": {
+                "decomplexity/SendOauth2": "Adapter for using XOAUTH2 authentication",
+                "ext-mbstring": "Needed to send email in multibyte encoding charset or decode encoded addresses",
+                "ext-openssl": "Needed for secure SMTP sending and DKIM signing",
+                "greew/oauth2-azure-provider": "Needed for Microsoft Azure XOAUTH2 authentication",
+                "hayageek/oauth2-yahoo": "Needed for Yahoo XOAUTH2 authentication",
+                "league/oauth2-google": "Needed for Google XOAUTH2 authentication",
+                "psr/log": "For optional PSR-3 debug logging",
+                "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)",
+                "thenetworg/oauth2-azure": "Needed for Microsoft XOAUTH2 authentication"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPMailer\\PHPMailer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1-only"
+            ],
+            "authors": [
+                {
+                    "name": "Marcus Bointon",
+                    "email": "phpmailer@synchromedia.co.uk"
+                },
+                {
+                    "name": "Jim Jagielski",
+                    "email": "jimjag@gmail.com"
+                },
+                {
+                    "name": "Andy Prevost",
+                    "email": "codeworxtech@users.sourceforge.net"
+                },
+                {
+                    "name": "Brent R. Matzelle"
+                }
+            ],
+            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+            "support": {
+                "issues": "https://github.com/PHPMailer/PHPMailer/issues",
+                "source": "https://github.com/PHPMailer/PHPMailer/tree/v6.10.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Synchro",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-04-24T15:19:31+00:00"
         },
         {
             "name": "phpowermove/docblock",
